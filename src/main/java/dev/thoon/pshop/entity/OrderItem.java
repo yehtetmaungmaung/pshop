@@ -29,12 +29,10 @@ public class OrderItem implements Serializable {
     @JsonView(Views.Public.class)
     private int quantity;
 
-
     private ClientOrder clientOrder;
 
     @JsonView(Views.Public.class)
     private Product product;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,7 +45,6 @@ public class OrderItem implements Serializable {
         this.id = id;
     }
 
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_clientOrder", foreignKey = @ForeignKey(name = "fk_orderItem_clientOrder"))
     public ClientOrder getClientOrder() {
@@ -57,8 +54,6 @@ public class OrderItem implements Serializable {
     public void setClientOrder(ClientOrder clientOrder) {
         this.clientOrder = clientOrder;
     }
-
-
 
     @Basic
     @Column(name = "quantity")
@@ -70,7 +65,6 @@ public class OrderItem implements Serializable {
         this.quantity = quantity;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -81,7 +75,6 @@ public class OrderItem implements Serializable {
         return quantity == that.quantity &&
                 Objects.equals(id, that.id);
     }
-
 
     @Override
     public int hashCode() {
@@ -95,5 +88,15 @@ public class OrderItem implements Serializable {
                 ", quantity=" + quantity +
                 ", product=" + product.getId() +
                 '}';
+    }
+
+    public void setProduct(Product product2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setProduct'");
+    }
+
+    public void setCount(int count) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCount'");
     }
 }

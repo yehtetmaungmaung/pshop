@@ -1,6 +1,5 @@
 package dev.thoon.pshop.entity;
 
-
 import java.util.List;
 import java.util.Objects;
 
@@ -21,7 +20,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "client")
 public class Client {
-    
+
     @JsonView(Views.Public.class)
     private String firstName;
 
@@ -44,7 +43,6 @@ public class Client {
 
     private List<ClientOrder> clientOrders;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -56,8 +54,6 @@ public class Client {
         this.id = id;
     }
 
-
-
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     public List<ClientOrder> getClientOrders() {
         return clientOrders;
@@ -67,18 +63,15 @@ public class Client {
         this.clientOrders = clientOrders;
     }
 
-
     @Basic
     @Column(name = "firstName")
-    public String getFristName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFristName(String fristName) {
-        this.firstName = fristName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
-
-
 
     @Basic
     @Column(name = "lastName")
@@ -90,10 +83,6 @@ public class Client {
         this.lastName = lastName;
     }
 
-
-
-
-
     @Basic
     @Column(name = "streetAddress")
     public String getStreetAddress() {
@@ -103,7 +92,6 @@ public class Client {
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
     }
-
 
     @Basic
     @Column(name = "town")
@@ -115,7 +103,6 @@ public class Client {
         this.town = town;
     }
 
-
     @Basic
     @Column(name = "email")
     public String getEmail() {
@@ -126,9 +113,6 @@ public class Client {
         this.email = email;
     }
 
-
-
-
     @Basic
     @Column(name = "phone")
     public String getPhone() {
@@ -138,7 +122,6 @@ public class Client {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -155,5 +138,5 @@ public class Client {
                 Objects.equals(email, client.email) &&
                 Objects.equals(phone, client.phone);
     }
-    
+
 }
